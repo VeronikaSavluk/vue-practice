@@ -1,15 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+  <h1>{{title}}</h1>
+  <BaseButton @click='increment'>Click me</BaseButton>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseButton from './components/BaseButton.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BaseButton
+  },
+  data(){
+    return {
+      amountOfClicks: 0
+    }
+  },
+  computed: {
+    title() {
+      return `Amount of Clicks: ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+  increment() {
+  this.amountOfClicks += 1
+  }
   }
 }
 </script>
