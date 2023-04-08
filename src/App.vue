@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div :id='$style.app'>
   <h1>{{title}}</h1>
-  <BaseButton @click='increment'>Click me</BaseButton>
+  <BaseButton @click='increment' outlined>Click me</BaseButton>
   </div>
 </template>
 
@@ -31,13 +31,13 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+<style module>
+  #app {
+  font-family: Avenir, Helvetica, Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2C3E50;
   margin-top: 60px;
-}
+  }
 </style>
