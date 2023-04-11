@@ -29,7 +29,7 @@
     cursor: pointer;
     min-width: 220px;
     border: 1px solid transparent;
-    padding: 8px 18 px;
+    padding: 8px 18px;
 
     &--outlined {
     background: none;
