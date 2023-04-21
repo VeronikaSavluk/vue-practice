@@ -2,7 +2,17 @@
   <div :id='$style.app'>
   <h1>{{ title }}</h1>
   <BaseButton @click='increment' outlined>Click me</BaseButton>
-  <ApartmentsList :items='apartments'/>
+  <ApartmentsList :items='apartments'>
+    <template v-slot:apartment="{ apartment }">
+      <ApartmentsItem
+				:key='apartment.id'
+				:descr='apartment.descr'
+				:rating='apartment.rating'
+				:imageUrl='apartment.imageUrl'
+				:price='apartment.price'
+			/>
+    </template>
+  </ApartmentsList>
   </div>
 </template>
 
@@ -10,12 +20,14 @@
 import BaseButton from './components/BaseButton.vue'
 import apartments from './components/apartments/apartments.js'
 import ApartmentsList from './components/apartments/ApartmentsList.vue'
+import ApartmentsItem from './components/apartments/ApartmentsItem.vue'
 
 export default {
   name: 'App',
   components: {
     BaseButton,
     ApartmentsList,
+    ApartmentsItem
   },
   data(){
     return {
