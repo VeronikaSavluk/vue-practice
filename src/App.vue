@@ -1,41 +1,49 @@
 <template>
   <div :id='app'>
-    <TheContainer>
-      <h1>Selection apartments</h1>
-      <ApartmentFilterForm
-        @submit="filter"
-        class="apartments-filter"
-      />
-      <p v-if="!filteredApartments.length">Nothing is selected</p>
-      <ApartmentsList v-else :items='filteredApartments'>
-        <template v-slot:apartment="{ apartment }">
-          <ApartmentsItem
-            :key='apartment.id'
-            :descr='apartment.descr'
-            :rating='apartment.rating'
-            :imageUrl='apartment.imageUrl'
-            :price='apartment.price'
-          />
-        </template>
-      </ApartmentsList>
-    </TheContainer>
+    <TheHeader />
+    <main>
+      <TheContainer>
+        <h1>Selection apartments</h1>
+        <ApartmentFilterForm
+          @submit="filter"
+          class="apartments-filter"
+        />
+        <p v-if="!filteredApartments.length">Nothing is selected</p>
+        <ApartmentsList v-else :items='filteredApartments'>
+          <template v-slot:apartment="{ apartment }">
+            <ApartmentsItem
+              :key='apartment.id'
+              :descr='apartment.descr'
+              :rating='apartment.rating'
+              :imageUrl='apartment.imageUrl'
+              :price='apartment.price'
+            />
+          </template>
+        </ApartmentsList>
+      </TheContainer>
+    </main>
+    <TheFooter/>
   </div>
 </template>
 
 <script>
 import apartments from './components/apartments/apartments.js'
+import TheHeader from './components/shared/TheHeader.vue'
 import ApartmentsList from './components/apartments/ApartmentsList.vue'
 import ApartmentsItem from './components/apartments/ApartmentsItem.vue'
 import ApartmentFilterForm from './components/apartments/ApartmentFilterForm.vue'
 import TheContainer from './components/shared/TheContainer.vue'
+import TheFooter from './components/shared/TheFooter.vue'
 
 export default {
   name: 'App',
   components: {
+    TheHeader,
     ApartmentsList,
     ApartmentsItem,
     ApartmentFilterForm,
-    TheContainer
+    TheContainer,
+    TheFooter
   },
   data(){
     return {
