@@ -7,9 +7,11 @@
 		/>
     <CustomInput
 			v-model="price"
+			@input="event => price = event.target.value"
 			placeholder='Price, to'
+			error-message="Mustn't be empty"
+			:rules="rules"
 		/>
-		<p>{{ city }}</p>
 		<SubmitButton type='submit' class="form__submit">
 			Apartment selection
 		</SubmitButton>
@@ -20,7 +22,8 @@
 	import CustomInput from '../shared/CustomInput.vue'
 	import CustomSelect from '../shared/CustomSelect.vue'
 	import SubmitButton from '../BaseButton.vue'
-
+	import { isRequired, charLimit } from '../../utils/validationRules'
+	
 	export default {
 		name: 'ApartmentFilterForm',
 		components: {
@@ -28,10 +31,29 @@
 			CustomSelect,
 			SubmitButton
 		},
+		data() {
+			return {
+				price: 0,
+				city: ''
+			};
+		},
 		emits: [ "submit" ],
 		computed: {
+			rules(){
+				return [ isRequired, charLimit(10) ];
+			},
 			cities() {
-				return [{ value: "", label: "All cities", selected: true}, "Kyiv", "Odesa", "Poltava", "Kharkiv", "Dnipro", "Lviv", "Kherson", "Mariupol"]
+				return [
+					{ value: "", label: "All cities", selected: true},
+					"Kyiv",
+					"Odesa",
+					"Poltava",
+					"Kharkiv",
+					"Dnipro",
+					"Lviv",
+					"Kherson",
+					"Mariupol"
+				]
 			}
 		},
 		methods: {
@@ -48,9 +70,11 @@
 <style lang="scss" scoped>
 	.form {
   display: flex;
+
   &__select {
     margin-right: 30px;
   }
+
   &__submit {
     margin-left: auto;
   }
