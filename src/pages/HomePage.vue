@@ -54,19 +54,21 @@ export default {
   },
   methods: {
     filter({ city, price }) {
-      this.filters.city = city
+      this.filters.city = city,
       this.filters.price = price
     },
     filterByCityName(apartments) {
-      if(!this.filters.city) return apartments
+      if(!this.filters.city) return apartments;
+      
       return apartments.filter(apartment => {
-        return apartment.location.city === this.filters.city
-      })
+        return apartment.location.city === this.filters.city;
+      });
     },
     filterByPrice(apartments) {
-      if(!this.filters.price) return apartments
+      if(!this.filters.price) return apartments;
+      
       return apartments.filter(apartment => {
-        return apartment.price <= this.filters.price
+        return apartment.price <= this.filters.price;
       })
     }
   }
