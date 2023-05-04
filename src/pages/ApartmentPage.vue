@@ -39,9 +39,6 @@
 				return apartments.find(apartment => 
 				apartment.id === this.$route.params.id
 			)}
-		},
-		mounted() {
-			console.log(this.apartment)
 		}
 	}
 </script>
