@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="home">
       <TheContainer>
         <h1>Selection apartments</h1>
         <ApartmentFilterForm
