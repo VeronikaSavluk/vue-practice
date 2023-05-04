@@ -14,6 +14,6 @@ export const emailValidation = (val) => ({
 });
 
 export const passwordValidation = (val) => ({
-	hasPassed: /^(?=.*[A-Za-z])(?=.*[\d]).{7,256}$/.test(val),
-	message: 'Password must include one number and one symbol'
-})
+	hasPassed: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(val),
+	message: 'The password must include uppercase and lowercase Latin letters, numbers, special characters (min 8 characters)'
+});
