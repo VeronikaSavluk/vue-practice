@@ -2,23 +2,29 @@
 	<AuthContainer class="login">
 		<TheForm ref='form' @submit.prevent="handleSubmit" class="login__form">
 			<CustomInput
-			v-model="formData.email"
-			@input="event => formData.email = event.target.value"
-			name="email"
-			placeholder="Email"
-			:rules="emailRules"
-			class="login__input"
+				v-model="formData.email"
+				@input="event => formData.email = event.target.value"
+				name="email"
+				placeholder="Email"
+				:rules="emailRules"
+				class="login__input"
 			/>
 			<CustomInput
-			v-model="formData.password"
-			@input="event => formData.password = event.target.value"
-			type="password"
-			name="password"
-			placeholder="Password"
-			:rules="passwordRules"
-			class="login__input"
+				v-model="formData.password"
+				@input="event => formData.password = event.target.value"
+				type="password"
+				name="password"
+				placeholder="Password"
+				:rules="passwordRules"
+				class="login__input"
 			/>
-			<BaseButton type="submit" class="login__btn">Log in</BaseButton>
+			<BaseButton
+				type="submit"
+				class="login__btn"
+				:loading="loading"
+			>
+				Log in
+			</BaseButton>
 		</TheForm>
 	</AuthContainer>
 </template>
@@ -39,7 +45,8 @@
 			BaseButton
 },
 		data(){
-			return{
+			return {
+				loading: false,
 				formData: {
 					email: '',
 					password: ''
@@ -64,8 +71,10 @@
 		},
 		methods: {
 			handleSubmit(){
-				const isFormValid = this.$refs.form.validate();
+				const { form } = this.$refs
+				const isFormValid = form.validate();
 				if(isFormValid) {
+				form.reset();
 				return this.$emit('submit', this.formData)
 				}
 			}
