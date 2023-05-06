@@ -1,5 +1,6 @@
 <template>
   <div :id='app'>
+    <TheNotifications />
     <TheHeader />
     <div class='content'>
       <router-view></router-view>
@@ -11,12 +12,20 @@
 <script>
 import TheHeader from './components/shared/TheHeader.vue'
 import TheFooter from './components/shared/TheFooter.vue'
+import TheNotifications from './components/notification'
 
 export default {
   name: 'App',
   components: {
     TheHeader,
-    TheFooter
+    TheFooter,
+    TheNotifications
+  },
+  mounted() {
+    this.$notify({
+      title: "Important message",
+      text: "Hello user!",
+    });
   }
 }
 </script>
