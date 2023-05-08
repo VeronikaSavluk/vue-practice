@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import TheHeader from './components/shared/TheHeader.vue'
+import TheHeader from './components/header'
 import TheFooter from './components/shared/TheFooter.vue'
 import TheNotifications from './components/notification'
 

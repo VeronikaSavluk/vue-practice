@@ -1,20 +1,27 @@
 <template>
 	<header class='header'>
 		<TheContainer>
-			<TheLogo />
+			<div class="header__content">
+			<router-link :to="{name: 'home'}" >
+				<TheLogo />
+			</router-link>
+			<AuthActions />
+			</div>
 		</TheContainer>
 	</header>
 </template>
 
 <script>
-	import TheContainer from './TheContainer'
+	import TheContainer from '../shared/TheContainer.vue'
 	import TheLogo from '../TheLogo.vue'
+	import AuthActions from './AuthActions.vue';
 
 	export default {
 		name: 'TheHeader',
 		components: {
 			TheContainer,
-			TheLogo
+			TheLogo,
+			AuthActions
 		}
 	}
 </script>
@@ -25,5 +32,11 @@
 	.header {
 		height: 60px;
 		background-color: $main-background-color;
+
+		&__content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 	}
 </style>
