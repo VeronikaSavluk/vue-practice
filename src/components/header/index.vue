@@ -6,6 +6,7 @@
 				<TheLogo />
 			</router-link>
 			<AuthActions />
+			<AccountActions />
 			</div>
 		</TheContainer>
 	</header>
@@ -14,14 +15,16 @@
 <script>
 	import TheContainer from '../shared/TheContainer.vue'
 	import TheLogo from '../TheLogo.vue'
-	import AuthActions from './AuthActions.vue';
+	import AuthActions from './AuthActions.vue'
+	import AccountActions from './AccountActions.vue'
 
 	export default {
 		name: 'TheHeader',
 		components: {
 			TheContainer,
 			TheLogo,
-			AuthActions
+			AuthActions,
+			AccountActions
 		}
 	}
 </script>

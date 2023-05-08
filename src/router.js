@@ -24,7 +24,12 @@ const routes = [
 		path: '/apartments/:id',
 		component: ApartmentPage,
 		name: 'apartment'
-	}
+	},
+	{
+		path: '/my-orders',
+		component: '',
+		name: 'my-orders'
+	},
 ]
 
 const router = createRouter({
