@@ -62,6 +62,14 @@
     min-width: 220px;
     border: 1px solid transparent;
     padding: 8px 18px;
+		transition: background-color 0.35s, color 0.35s;
+		font-family: Montserrat, sans-serif;
+		
+		&:hover {
+    background: #fff;
+    color: #ff662d;
+    border: 1px solid #ff662d;
+		}
 
     &--outlined {
     background: none;
