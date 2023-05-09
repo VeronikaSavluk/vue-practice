@@ -1,5 +1,5 @@
 <template>
-  <div :id='app'>
+  <div id='app'>
     <TheNotifications />
     <TheHeader />
     <div class='content'>
@@ -34,7 +34,7 @@ export default {
   #app {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     font-family: Montserrat, Helvetica, Arial,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
