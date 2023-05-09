@@ -6,16 +6,19 @@
 		</div>
 		<img :src="apartment.imageUrl" alt="" class="apartment-info__photo" />
 		<p class="apartment-info__description">{{ apartment.descr }}</p>
+		<BookButton class="apartment-info__btn">Reserve</BookButton>
 	</article>
 </template>
 
 <script>
 	import StarRating from '@/components/StarRating.vue';
+	import BookButton from '../BaseButton.vue';
 
 	export default {
 		name: 'ApartmentInfo',
 		components: {
-			StarRating
+			StarRating,
+			BookButton
 		},
 		props: {
 			apartment: {
@@ -28,6 +31,8 @@
 
 <style lang="scss" scoped>
 	.apartment-info {
+		display: flex;
+		flex-direction: column;
   &__heading {
     display: flex;
   }
@@ -44,6 +49,10 @@
   &__description {
     line-height: 1.3;
     margin-top: 30px;
+  }
+	&__btn {
+    margin-top: 20px;
+    align-self: center;
   }
 }
 </style>
